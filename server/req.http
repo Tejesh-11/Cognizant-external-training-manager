@@ -1,0 +1,97 @@
+post http://localhost:2000/user-api/coach
+Content-Type: application/json
+
+{   
+    "id":"2",
+    "username":"Avinas Goud",
+    "password":"avinash",
+    "userType":"coach",
+    "empid":"2308387",
+    "email":"tejeshreddy@cognizant.com",
+    "allocatedbatches":[]
+}
+
+###
+get http://localhost:2000/batch-api/allocatedbatches/Praveen Kumar
+
+###
+get http://localhost:2000/user-api/batchdetails/Gayathri
+
+###
+get http://localhost:2000/batch-api/nonallocatedbatches/Praveen Kumar
+
+###
+
+put http://localhost:2000/user-api/allocate
+Content-Type: application/json
+
+{
+    "username":"Praveen Kumar",
+    "batch":{
+      "_id": "65e2c41ad262fa10e3b9470d",
+      "id": "15",
+      "cohortNumber": "TMRCMR015",
+      "domain": "React",
+      "no_ofEmployees": 25,
+      "roomNumber": "Tr-15",
+      "trainer":"Rajesh"
+    }
+}
+
+
+###
+put http://localhost:2000/user-api/deallocate
+Content-Type: application/json
+
+{
+    "username":"Praveen Kumar",
+    "batch":{
+      "_id": "65e2c41ad262fa10e3b9470d",
+      "id": "15",
+      "cohortNumber": "TMRCMR015",
+      "domain": "React",
+      "no_ofEmployees": 25,
+      "roomNumber": "Tr-15",
+      "trainer":"Rajesh"
+    }
+    
+}
+
+###
+delete http://localhost:2000/user-api/deletebatch
+Content-Type: application/json
+
+{
+    "username":"Praveen Kumar",
+    "batch":  {
+      "_id": "65e2c41ad262fa10e3b9470d",
+      "id": "15",
+      "cohortNumber": "TMRCMR015",
+      "domain": "React",
+      "no_ofEmployees": 25,
+      "roomNumber": "Tr-15",
+      "trainer":"Rajesh"
+    }
+}
+
+###
+get http://localhost:2000/user-api/trainers
+
+###
+post http://localhost:2000/user-api/user
+Content-Type: application/json
+
+{
+    "username":"ravi",
+    "password":"ravi",
+    "email":"tejesh@gmail",
+    "skills":"dadada",
+    "experience":"12",
+    "phno":235,
+    "profileImageUrl":"5r545646",
+    
+}
+
+
+
+###
