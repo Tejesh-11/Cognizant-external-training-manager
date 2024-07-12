@@ -22,7 +22,7 @@ function TrainerWelcome() {
 
   const fetchAllocatedBatch = async () => {
     try {
-      const res = await axios.get(`http://localhost:2000/batch-api/batchdetails/${currentUser.username}`);
+      const res = await axios.get(`https://externaltrainer-backend.vercel.app/batch-api/batchdetails/${currentUser.username}`);
       setAllocatedBatch(res.data.payload);
     } catch (error) {
       console.error('Error fetching allocated batch:', error);
