@@ -10,7 +10,7 @@ const Trainers = () => {
     // Fetch trainers data from backend
     const fetchTrainers = async () => {
       try {
-        const response = await axios.get(`http://localhost:2000/user-api/trainers`); 
+        const response = await axios.get(`https://externaltrainer-backend.vercel.app/user-api/trainers`); 
         setTrainers(response.data.payload.map(trainer => ({ ...trainer, showMoreInfo: false }))); 
       } catch (error) {
         console.error('Error fetching trainers:', error);
