@@ -19,7 +19,7 @@ const AllocatedBatches = () => {
   const fetchAllocatedBatches = async () => {
   
     try {
-      const res = await axios.get(`http://localhost:2000/batch-api/allocatedbatches/${currentUser.username}`);
+      const res = await axios.get(`https://externaltrainer-backend.vercel.app/batch-api/allocatedbatches/${currentUser.username}`);
       setAllocatedBatches(res.data.payload);
     } catch (error) {
       console.error('Error fetching allocated batches:', error);
@@ -29,7 +29,7 @@ const AllocatedBatches = () => {
 
   const deallocateBatch = async (batch) => {
     try {
-      await axios.put(`http://localhost:2000/batch-api/deallocate`, {
+      await axios.put(`https://externaltrainer-backend.vercel.app/batch-api/deallocate`, {
         username: currentUser.username,
         batch: batch
       });
