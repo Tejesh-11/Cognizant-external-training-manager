@@ -23,7 +23,7 @@ function Register() {
 
     try {
       
-      const res = await axios.post("http://localhost:2000/user-api/user", formData);
+      const res = await axios.post("https://externaltrainer-backend.vercel.app/user-api/user", formData);
 
       if (res.status === 201) {
         toast.success("Registered Successfully !");
