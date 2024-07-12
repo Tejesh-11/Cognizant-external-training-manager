@@ -5,7 +5,7 @@ import axios from 'axios';
 export const userLoginLifeCycle = createAsyncThunk('user-login', async (userCred, thunkApi) => {
     try {
 
-        let res = await axios.post('http://localhost:2000/user-api/login', userCred);
+        let res = await axios.post('https://externaltrainer-backend.vercel.app/user-api/login', userCred);
         if (res.data.message === 'login success') {
             sessionStorage.setItem('token', res.data.token);
             return { ...res.data, userType: userCred.userType };
