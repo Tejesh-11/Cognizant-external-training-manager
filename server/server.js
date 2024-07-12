@@ -6,8 +6,7 @@ require('dotenv').config();
 
 // Enable CORS with specific origins and credentials
 const corsOptions = {
-  origin: ["https://extrernaltrainer-frontend.vercel.app"], 
-  methods: ["POST","GET"],
+  origin: "https://extrernaltrainer-frontend.vercel.app", 
   credentials: true,
 };
 
