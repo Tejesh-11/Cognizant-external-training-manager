@@ -7,7 +7,7 @@ function AllBatchesList() {
   const [allbatches,setAllbatches]=useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:2000/batch-api/batches")
+    axios.get("https://externaltrainer-backend.vercel.app/batch-api/batches")
       .then((res) => {
         setAllbatches(res.data.payload);
       })
