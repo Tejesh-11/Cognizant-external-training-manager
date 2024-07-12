@@ -17,7 +17,7 @@ function Header() {
   return (
     <nav className="navbar navbar-expand-sm navbar-light bg-dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="http://localhost:2000/">
+        <a className="navbar-brand" href="https://externaltrainer-backend.vercel.app/">
           <img
             src="CTSH_BIG.D.png"
             height="50px"
