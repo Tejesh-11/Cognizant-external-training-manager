@@ -11,11 +11,12 @@ function Register() {
   const [file, setFile] = useState(null);
 
   const options = ["Java", "Python", "SQL", ".Net", "Angular", "React"];
-
+   
   function uploadPic(e) {
     setFile(e.target.files[0]);
   }
 
+  axios.defaults.withCredentials=true;
   const onRegister = async (userObj) => {
     const formData = new FormData();
     formData.append("userObj", JSON.stringify(userObj));
