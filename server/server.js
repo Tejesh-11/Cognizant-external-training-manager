@@ -17,12 +17,12 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Import API routes
-const userRouter = require('./APIs/user-api');
-const batchRouter = require('./APIs/batch-api');
+const router = require('./APIs/user-api');
+const router1 = require('./APIs/batch-api');
 
 // Use the imported API routes
-app.use('/user-api', userRouter);
-app.use('/batch-api', batchRouter);
+app.use('/user-api', router);
+app.use('/batch-api', router1);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
