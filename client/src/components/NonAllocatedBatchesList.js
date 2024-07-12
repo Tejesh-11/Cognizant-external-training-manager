@@ -15,13 +15,13 @@ const NonAllocatedBatchesList = () => {
    
 
   useEffect(() => {
-    axios.get(`http://localhost:2000/batch-api/nonallocatedbatches/${currentUser.username}`)
+    axios.get(`https://externaltrainer-backend.vercel.app/nonallocatedbatches/${currentUser.username}`)
       .then((res) => {
         setBatches(res.data.payload);
       })
       .catch((err) => console.log(err));
 
-    axios.get(`http://localhost:2000/user-api/trainers`)
+    axios.get(`https://externaltrainer-backend.vercel.app/user-api/trainers`)
       .then((res) => {
         setTrainers(res.data.payload);
       })
