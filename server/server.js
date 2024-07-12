@@ -1,43 +1,34 @@
-//create express app
-const exp=require('express')
-const app=exp();
-const path=require('path')
+// Import required modules
+const express = require('express');
+const app = express();
+const cors = require('cors');
+require('dotenv').config();
 
+// Enable CORS with specific origins and credentials
+const corsOptions = {
+  origin: '', // Replace with your allowed origin
+  credentials: true,
+};
 
-//join with react
-app.use(exp.static(path.join(__dirname,'../client/build')))
+app.use(cors(corsOptions));
 
+// Middleware to parse JSON bodies
+app.use(express.json());
 
-//configure environment variables
-require('dotenv').config()
+// Import API routes
+const userRouter = require('./APIs/user-api');
+const batchRouter = require('./APIs/batch-api');
 
-//add body parsing middleware
-app.use(exp.json())
+// Use the imported API routes
+app.use('/user-api', userRouter);
+app.use('/batch-api', batchRouter);
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: "An error occurred", payload: err.message });
+  console.error(err);
+});
 
-//import api's 
-const router=require('./APIs/user-api');
-const router1=require('./APIs/batch-api');
-
-
-// path-level middleware
-app.use('/user-api',router)
-app.use('/batch-api',router1)
-
-
-
-
-app.use((req,res,next)=>
-  res.sendFile(path.join(__dirname,'../client/build/index.html'))
-)
-
-
-//error handler 
-app.use((err,req,res,next)=>{
-    res.send({message:"error occuurred",payload:err.message})
-    console.log(err)
-})
-
-//asign port number
-const PORT=process.env.PORT || 2000;
-app.listen(PORT,()=>console.log(`web server listening on port ${PORT}`))
+// Assign port number from environment variable or default to 2000
+const PORT = process.env.PORT || 2000;
+app.listen(PORT, () => console.log(`Web server listening on port ${PORT}`));
